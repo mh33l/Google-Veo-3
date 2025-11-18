@@ -1,0 +1,392 @@
+/**
+ * TechGlow Custom Styles
+ * Modern, responsive CSS for portfolio website
+ */
+
+/* ==================== Variables ==================== */
+:root {
+    --primary-color: #0d6efd;
+    --secondary-color: #6c757d;
+    --success-color: #198754;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --dark-color: #212529;
+    --light-color: #f8f9fa;
+    --transition-speed: 0.3s;
+}
+
+/* ==================== Global Styles ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+}
+
+.main-content {
+    min-height: calc(100vh - 200px);
+}
+
+/* ==================== Navbar Styles ==================== */
+.navbar-brand {
+    font-size: 1.5rem;
+    transition: transform var(--transition-speed);
+}
+
+.navbar-brand:hover {
+    transform: scale(1.05);
+}
+
+.nav-link {
+    position: relative;
+    transition: color var(--transition-speed);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--warning-color);
+    transform: translateX(-50%);
+    transition: width var(--transition-speed);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 80%;
+}
+
+.nav-link.active {
+    color: var(--warning-color) !important;
+}
+
+/* ==================== Hero Section ==================== */
+.hero-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.1)" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+    background-size: cover;
+}
+
+/* ==================== Card Styles ==================== */
+.card {
+    border: none;
+    border-radius: 12px;
+    transition: all var(--transition-speed);
+}
+
+.hover-lift {
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.hover-lift:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15) !important;
+}
+
+.card-title a {
+    transition: color var(--transition-speed);
+}
+
+.card-title a:hover {
+    color: var(--primary-color) !important;
+}
+
+/* ==================== Badge Styles ==================== */
+.badge {
+    font-weight: 500;
+    padding: 0.4em 0.8em;
+    border-radius: 6px;
+}
+
+.bg-success-subtle {
+    background-color: rgba(25, 135, 84, 0.1);
+}
+
+.text-success {
+    color: var(--success-color) !important;
+}
+
+/* ==================== Section Styles ==================== */
+.section-header h2 {
+    position: relative;
+    display: inline-block;
+}
+
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--warning-color));
+    border-radius: 2px;
+}
+
+/* ==================== Page Header ==================== */
+.page-header {
+    position: relative;
+    overflow: hidden;
+}
+
+.page-header.bg-primary {
+    background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%) !important;
+}
+
+.page-header.bg-success {
+    background: linear-gradient(135deg, #198754 0%, #146c43 100%) !important;
+}
+
+.page-header.bg-warning {
+    background: linear-gradient(135deg, #ffc107 0%, #ffb300 100%) !important;
+}
+
+/* ==================== Tool and Project Icons ==================== */
+.tool-icon,
+.project-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(25, 135, 84, 0.1);
+    border-radius: 12px;
+    transition: all var(--transition-speed);
+}
+
+.project-icon {
+    background-color: rgba(255, 193, 7, 0.1);
+}
+
+.card:hover .tool-icon,
+.card:hover .project-icon {
+    transform: rotate(5deg) scale(1.1);
+}
+
+/* ==================== Footer Styles ==================== */
+.footer {
+    margin-top: auto;
+    border-top: 3px solid var(--warning-color);
+}
+
+.social-links a {
+    display: inline-block;
+    transition: transform var(--transition-speed), color var(--transition-speed);
+}
+
+.social-links a:hover {
+    transform: translateY(-3px);
+    color: var(--warning-color) !important;
+}
+
+.footer a:hover {
+    color: var(--warning-color) !important;
+}
+
+/* ==================== Back to Top Button ==================== */
+.btn-floating {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: all var(--transition-speed);
+}
+
+.btn-floating:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.btn-floating.show {
+    display: flex;
+}
+
+/* ==================== Search and Filter Section ==================== */
+.search-filter-section .input-group-text {
+    background-color: #fff;
+    border-right: none;
+}
+
+.search-filter-section .form-control {
+    border-left: none;
+}
+
+.search-filter-section .form-control:focus {
+    border-color: #dee2e6;
+    box-shadow: none;
+}
+
+/* ==================== Button Styles ==================== */
+.btn {
+    border-radius: 8px;
+    padding: 0.5rem 1.5rem;
+    font-weight: 500;
+    transition: all var(--transition-speed);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-lg {
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+}
+
+/* ==================== Alert Styles ==================== */
+.alert {
+    border-radius: 10px;
+    border: none;
+}
+
+/* ==================== Animation ==================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* ==================== Responsive Styles ==================== */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+
+    .hero-section p {
+        font-size: 1rem;
+    }
+
+    .btn-floating {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+    }
+
+    .card-title {
+        font-size: 1.1rem;
+    }
+
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+
+    .hero-section {
+        padding: 2rem 0 !important;
+    }
+
+    .search-filter-section .btn {
+        width: 100% !important;
+    }
+}
+
+/* ==================== Loading State ==================== */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ==================== Utility Classes ==================== */
+.text-justify {
+    text-align: justify;
+}
+
+.shadow-sm {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+}
+
+.bg-gradient {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* ==================== Print Styles ==================== */
+@media print {
+    .navbar,
+    .footer,
+    .btn-floating,
+    .search-filter-section {
+        display: none;
+    }
+
+    .card {
+        break-inside: avoid;
+    }
+}
+
+/* ==================== Custom Scrollbar ==================== */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--light-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--dark-color);
+}
+
+/* ==================== Dark Mode Support (Optional) ==================== */
+@media (prefers-color-scheme: dark) {
+    /* Add dark mode styles here if needed */
+}
